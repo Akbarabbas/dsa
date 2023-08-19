@@ -1,4 +1,4 @@
-package com.akky.study.dsa.array;
+package com.akky.study.dsa.array.linearsearch;
 
 public class LinearSearchIn2DArray {
 	public static void main(String[] args) {
