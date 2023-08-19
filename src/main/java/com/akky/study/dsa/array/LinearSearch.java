@@ -10,11 +10,6 @@ public class LinearSearch {
 		System.out.println(findMin(nums));
 
 		System.out.println(findMax(nums));
-
-		System.out.println(countNumbersWithEvenNumberOfDigits(nums));
-		
-		System.out.println(getNumberOfDigits(160876));
-		System.out.println(getNumberOfDigitsOptimized(160876));
 	}
 
 	static int linearSearch(int[] arr, int target) {
@@ -63,32 +58,5 @@ public class LinearSearch {
 				max = arr[i];
 		}
 		return max;
-	}
-
-	static int countNumbersWithEvenNumberOfDigits(int[] arr) {
-		int count = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (getNumberOfDigits(arr[i]) % 2 == 0)
-				count++;
-		}
-		return count;
-	}
-
-	static int getNumberOfDigits(int number) {
-		if (number == 0) {
-			return 1;
-		}
-		int count = 0;
-		number = Math.abs(number);
-		while (number > 0) {
-			count++;
-			number = number / 10;
-		}
-		return count;
-	}
-
-	static int getNumberOfDigitsOptimized(int number) {
-		number = Math.abs(number);
-		return (int) (Math.log10(number)) + 1;
 	}
 }
