@@ -1,5 +1,6 @@
 package com.akky.study.dsa.array.binarysearch;
 
+//https://leetcode.com/problems/search-in-rotated-sorted-array/description/
 public class SearchInRotatedSortedArray {
 	public static void main(String[] args) {
 		int[] nums = { 5, 1, 3 };
@@ -9,9 +10,12 @@ public class SearchInRotatedSortedArray {
 
 	static int search(int[] nums, int target) {
 		int peakIndex = findPeakIndex(nums);
-		int leftIndex = binarySearch(nums, 0, peakIndex, target);
-		if (leftIndex != -1)
-			return leftIndex;
+		if (peakIndex == -1)
+			return binarySearch(nums, 0, nums.length - 1, target);
+		if (target == nums[peakIndex])
+			return peakIndex;
+		if (target >= nums[0])
+			return binarySearch(nums, 0, peakIndex - 1, target);
 		else
 			return binarySearch(nums, peakIndex + 1, nums.length - 1, target);
 	}
